@@ -7,7 +7,9 @@ It uses firebase as backend and Next JS and React JS as front - end.
 The file hierarchy looks like:
 
 The uses of each folder:
+
 Components: To create re-usable components, such as the navbar and other things.
+
 Pages: Each URL route of the application goes here.
 
 ## Updated By Kenneth on Monday July 18, 2022
