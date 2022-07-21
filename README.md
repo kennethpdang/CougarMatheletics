@@ -2,7 +2,7 @@
 This is a Next.js project for your CougarMatheletics club at the University of Houston.
 It uses firebase as backend and Next JS and React JS as front - end.
 
-![alt text](https://github.com/kennethpdang/CougarMatheletics/public/logoimage.png?raw=true)
+![CougarMatheletics Logo](https://github.com/kennethpdang/CougarMatheletics/blob/main/public/logoimage.png?raw=true)
 
 The file hierarchy looks like:
 
