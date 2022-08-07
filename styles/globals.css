@@ -3,13 +3,371 @@ html, body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background-color: black;
 }
 
-a {
-  color: inherit;
+/* Scrollbar Styling */
+/* CHANGING SCROLLBAR */
+::-webkit-scrollbar {
+	width: 8px;
+	border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #C70F2E;
+	border-radius: 3px;
+}
+
+/* Navigation Bar Styling */
+#navigation_page_menu:checked ~ #navigation_page { /* When the checkbox is checked, move navigation page to beginning */
+  right: 0px;
+}
+
+#navigation_page { /* This is the container for all the next JS links */
+  position: fixed;
+  background-color: black;
+  top: 0px;
+  right: -100%; /* Sets it to the right of the screen by 100% (to slide in like a card over a deck) */
+  width: 100%;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+}
+
+.menu-btn { /* This creates the actual button container that you can click on. */
+  position: absolute;
+  z-index: 2;
+  right: 20px;
+  top: 20px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-btn span, .menu-btn:before, .menu-btn:after { /* Creates three lines all in the same place for the hamburger icon (fa-bars mimic). */
+  content: "";
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 30%;
+  width: 40%;
+  border-bottom: 2px solid #000;
+  transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+} 
+
+.menu-btn:before{ /* Move the line before up 8 pixels (from current position). */
+  transform: translateY(-8px);
+}
+
+.menu-btn:after{ /* Move the line after down 8 pixels (from current position). */
+  transform: translateY(8px);
+}
+
+.close {
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	transition: background .6s;
+}
+
+#navigation_page_menu:checked + .menu-btn:before { /* When menu is checked rotate the two divs to form a close button and turn the color white. */
+	transform: rotate(45deg);
+  border-color: #fff;
+}
+
+#navigation_page_menu:checked + .menu-btn:after { /* When menu is checked rotate the two divs to form a close button and turn the color white. */
+	transform: rotate(-45deg);
+  border-color: #fff;
+}
+
+#navigation_page ul{ /* Positions the links inside the navigation page wrapper to be in the middle. */
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  height: 90%;
+  transform: translate(-50%, -50%);
+  list-style: none;
+  text-align: center;
+}
+
+input[type="checkbox"] { /* This hides the checkbox, since we don't actually need users to check the checkbox */
+  display: none;
+}
+
+#navigation_page li {
+  color: white;
+}
+
+/* Slide in */
+#navigation_page a {
+  display: block;
+  position: relative;
+  padding: 0.7em 0;
+}
+
+#navigation_page ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: #C70F2E; /* Color of the underlined link. */
+  opacity: 0;
+  transition: opacity 700ms, transform 700ms;
+}
+
+#navigation_page ul li a {
+  overflow: hidden;
+  color: white;
   text-decoration: none;
+}
+
+#navigation_page ul li a::after {
+  opacity: 1;
+  transform: translate3d(-101%, 0, 0); /* Set this off to the side of the links. */
+}
+
+#navigation_page a:hover::after, #navigation_page a:focus::after{
+  transform: translate3d(0, 0, 0); /* Slide in when hover over link. */
+}
+
+#navigation_bar {
+  height: 90px;
+  background-color: #C70F2E;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+#navigation_bar li {
+  list-style-type: none;
+}
+
+.home_button_wrapper {
+  top: 20px;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  z-index: 0; /* Want to hide it underneath the navigation panel, when it scrolls over. */
+  left: 20px;
+}
+
+.home_button_wrapper:hover {
+  cursor: pointer;
+}
+
+/* Styling The Home Page */
+#homepage_introduction_section {
+  align-items: center;
+  justify-content: center;
+  background-image: url('../public/top-1600.svg');
+  background-size: 3200px 460px, auto, cover;
+  padding: 6em 0 18em 0;
+  background-position: bottom center, top left, center center; /* Positioning SVG into the right place */
+  background-repeat: repeat-x, repeat, no-repeat;
+}
+
+#homepage_welcoming_texts_and_summary {
+  height: 40vh;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#homepage_what_activities_we_do {
+  height: 145vh;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1vw;
+}
+
+#homepage_posts {
+  height: 90vh;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+#post_grid {
+  height: 80%;
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: 
+    "postarea1 postarea2 postarea3 postarea4 postarea5"
+    "postarea6 postarea7 postarea8 postarea9 postarea10"
+    "postarea11 postarea12 postarea13 postarea14 postarea15";
+}
+
+.post {
+  text-align: center;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+  color: black;
+  font-size: 1vw;
+}
+
+.post:hover {
+  filter: brightness(120%);
+  transform: scale(1.1);
+}
+
+.post h2 {
+  margin: 0px;
+}
+
+.id1 {
+  background-color: #91C1C3;
+}
+
+.id2 {
+  background-color: #DAB894;
+}
+
+.id3 {
+  background-color: #86BBBD;
+}
+
+.id4 {
+  background-color: #FFCA6F;
+}
+
+.id5 {
+  background-color: #FFCAAF;
+}
+
+.id6 {
+  background-color: #6A6B83;
+}
+
+.id7 {
+  background-color: #708091;
+}
+
+.id8 {
+  background-color: #F1FFC4;
+}
+
+.id9 {
+  background-color: #FFB4A2;
+}
+
+.id10 {
+  background-color: #E85D75;
+}
+
+.id11 {
+  background-color: #F45B69;
+}
+
+.id12 {
+  background-color: #00E8FC;
+}
+
+.id13 {
+  background-color: #F9C846;
+}
+
+.id14 {
+  background-color: #FFE3E3;
+}
+
+.id15 {
+  background-color: #FF6F59;
+}
+
+.double_bordered_center_div {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 0.5%;
+  width: 60%;
+  text-align: center;
+}
+
+.double_bordered_center_div::after, .double_bordered_center_div::before {
+  content: "";
+  border-top: 1px solid black;
+  width: 100%;
+  height: 1px;
+  display: block;
 }
 
 * {
   box-sizing: border-box;
+}
+
+footer {
+  background-color: #F2F3EB;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  flex-direction: column;
+}
+
+footer p {
+  margin: 0px;
+}
+
+#footer_icon_spanner {
+  display: inline-flex;
+  padding: 0px;
+  margin: 0px;
+}
+
+#footer_icon_spanner li {
+  list-style-type: none;
+  margin-left: 10px;
+}
+
+#footer_icon_spanner li a {
+  text-decoration: none;
+  color: black;
+}
+
+#footer_icon_spanner li a:hover {
+  color: rgb(185, 51, 51);
+  cursor: pointer;
+}
+
+.two_column_four_rows_chart {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  width: 60%;
+}
+
+.two_column_four_rows_image_right_end {
+  align-self: flex-start;
+  width: 450px;
+  height: 250px;
+  position: relative;
+}
+
+.two_column_four_rows_image_left_end {
+  width: 450px;
+  height: 250px;
+  position: relative;
+  align-self: flex-end;
+}
+
+.two_column_four_rows_image_left_end > span {
+  align-self: flex-end;
+  z-index: 0;
 }
