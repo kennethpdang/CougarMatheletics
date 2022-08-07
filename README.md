@@ -16,3 +16,11 @@ Styles: For both specific page cascading style sheets and general cascading styl
 ## Updated By Kenneth on Monday July 18, 2022
 - Created all pages for both admin and users and created the main components in each one of those files.
 - Add toaster JS library for custom end-user feedback.
+
+## Updated By Kenneth on August 6, 2022
+- Added Framer motion to homepage to animate logo on load.
+- Resized the SVG for mobile devices.
+- Added a Footer component along with links to socials of Cougar Matheletics and a copyright statement.
+- Added a qoute onto the homepage.
+- Added a section for posts and filled with temporary posts with nice color pallete.
+- Added a z-index to navigation bar so that prefetched images don't overlap the navigation bar.
