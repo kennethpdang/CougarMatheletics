@@ -66,7 +66,7 @@ export default function Home() {
     </section>
     <section id = "homepage_what_activities_we_do">
       <div className = "two_column_four_rows_chart">
-        <div className = "text_column">
+        <div className = "two_column_four_rows_text_cell_left">
           <h3> Welcome to Cougar Matheletics </h3>
           <p> We are incredibly excited that you have decided to explore our webpage! And we'd love to have you to join any one of our events. </p>
         </div>
@@ -76,20 +76,24 @@ export default function Home() {
         <div className = "two_column_four_rows_image_left_end">
           <Image src = "/../public/Homepage-Tournament.jpg" alt = "Picture of University of Houston Math Tournament." width = {450} height = {250} layout = "fill" />
         </div>
-        <div className = "text_column">
+        <div className = "two_column_four_rows_text_cell_right">
           <h3> Tournaments </h3>
           <p> We host a varierity of Tournaments including: a competitive mathematics tournaments, pi - memorization, math smack downs, and integration bees. You could win scholarships, and gain
             extra credit with participating professors. </p>
         </div>
-        <div className = "text_column">
+        <div className = "two_column_four_rows_text_cell_left">
           <h3> Collaborations with Other Clubs </h3>
           <p> We are currently in the process of reaching out to other clubs and organizing larger events not solely focused on mathematics but in STEM in general. We are hoping for these to be 
             large events with oustide sponsors, free T-Shirts, food, and an opportunity to win scholarships and internships. We hope to do large - scale events inpired by the UH Clear - Lake 
             STEM Competition. </p>
         </div>
-        <Image src = "/../public/Homepage-Club-Collaboration.jpg" alt = "Picture of potential club collaboration between Code Coogs and Cougar Matheletics." width = {450} height = {250} layout = "fixed" />
-        <Image src = "/../public/Homepage-Potluck.jpg" alt = "Picture of table with food, demonstrating a potluck gathering." width = {450} height = {250} layout = "fixed" />
-        <div className = "text_column">
+        <div className= 'two_column_four_rows_image_right_end_'>
+          <Image src = "/../public/Homepage-Club-Collaboration.jpg" alt = "Picture of potential club collaboration between Code Coogs and Cougar Matheletics." width = {450} height = {250} layout = "fixed" />
+        </div>
+        <div className = "two_column_four_rows_image_left_end">
+          <Image src = "/../public/Homepage-Potluck.jpg" alt = "Picture of table with food, demonstrating a potluck gathering." width = {450} height = {250} layout = "fixed" />
+        </div>
+        <div className = "two_column_four_rows_text_cell_right">
           <h3> Socials </h3>
           <p> Looking for a place to connect without much commitment? Join us for socials! We have bowling socials, volunteering socials, 
             and ocasionally we host workshops like our LaTeX workshops with sometimes food. It's a much more relaxed environment to connect with your peers. We also have

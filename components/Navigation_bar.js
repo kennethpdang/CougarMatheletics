@@ -8,9 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Gives the f
 
 // Top Navigation Bar:
 export default function NavigationBar() {
-    const user = null;
-    const username = null;
-    const vertical = false;
+    const user = "Kenneth";
+    const username = "Kenneth";
 
     return (
         <header>
